@@ -1,6 +1,7 @@
 package util
 
 import (
+	"log"
 	"math/rand"
 	"time"
 )
@@ -10,11 +11,14 @@ func GetRandomInt() int {
 	return rand.Int()
 }
 
-func MillisToReadable() (int, int, int, int64) {
-	h := time.Now().Hour()
-	m := time.Now().Minute()
-	s := time.Now().Second()
-	ms := time.Now().UnixMilli()
-	return h, m, s, ms
+func ApplicationLaunch() time.Time {
+	return time.Now()
+}
 
+func UptimeCount(t time.Time) time.Duration {
+	dur, err := time.ParseDuration(time.Duration.String(time.Since(t)))
+	if err != nil {
+		log.Fatal(err)
+	}
+	return dur
 }
