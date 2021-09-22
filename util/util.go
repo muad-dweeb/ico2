@@ -11,8 +11,8 @@ func GetRandomInt() int {
 	return rand.Int()
 }
 
-func ApplicationLaunch() time.Time {
-	return time.Now()
+func RollOutput() {
+
 }
 
 func UptimeCount(t time.Time) time.Duration {
